@@ -1,5 +1,6 @@
 deployment:
   replicas: "1"
   changeCause: "initial deployment"
+  imageVersion: "1.29.8"
 service:
-  loadbalancer: "LoadBalancer"
+  type: "LoadBalancer"

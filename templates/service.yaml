@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: nginx-service
 spec:
-  type: {{ .Values.service.loadbalancer}}
+  type: {{ .Values.service.type}}
   selector:
     # labels are used for selector
     project: roboshop

@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: replicaset
+  labels:
+    project: roboshop
+    purpose: poc
+    component: frontend
+  annotations:
+    kubernetes.io/change-cause: {{ .Values.deployment.changeCause}}
+spec: 
+  replicas: {{ .Values.deployment.replicas}}
+  selector:
+    matchLabels:
+      project: roboshop
+      purpose: poc
+      component: frontend
+  template:
+    metadata:
+      name: nginx
+      labels:
+        project: roboshop
+        purpose: poc
+        component: frontend
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:latest
